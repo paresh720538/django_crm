@@ -1,0 +1,36 @@
+{% extends 'webApp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+    <body>
+        <div class="container bg-light shadow-md p-5 form-layout">
+
+            <h3> Update your Record </h3>
+            <h6>Let's Update this Record!</h6>
+
+            <hr>
+            <br>
+
+            <form method="POST" autocomplete="off" >
+
+                <!-- # this token is mandetory for posting the form  -->
+                {% csrf_token %}
+
+                <!-- this form is equal to the form written in views function -->
+                {{form|crispy}}
+
+                <br>
+
+                <button type="submit" class="btn btn-primary w-100 btn-block p-2"> Update Record &nbsp; <i class="fa fa-user" aria-hidden="true"></i> </button>
+
+
+            </form>
+        </div>
+    </body>
+
+
+
+{% endblock %}
